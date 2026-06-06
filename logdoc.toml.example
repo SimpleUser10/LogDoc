@@ -1,0 +1,18 @@
+# Example LogDoc config — copy to ~/.logdoc.toml or ./logdoc.toml
+
+[ollama]
+url = "http://127.0.0.1:11434"
+model = "llama3.2"
+default_ai = false
+
+[watch]
+context_before = 8
+context_after = 4
+debounce_seconds = 0.6
+buffer_maxlen = 200
+passthrough = true
+
+[[patterns]]
+name = "my-service-down"
+kind = "network"
+regex = "MyServiceUnavailable|SERVICE_UNAVAILABLE"

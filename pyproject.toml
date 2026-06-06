@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "logdoc"
+version = "1.0.0"
+description = "Prompt-driven CLI debugger — intercept logs, detect errors, suggest fixes locally"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = [
+    "click>=8.1",
+    "rich>=13.7",
+    "httpx>=0.27",
+]
+
+[project.scripts]
+logdoc = "logdoc.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "pytest-asyncio>=0.23"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
